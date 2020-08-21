@@ -1,16 +1,27 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+# импортируем из модуля дата_и_время объект, который умеет работать с текущей датой и временем
+from datetime import datetime
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+# 5 строчек нашего кода, который проверяет текущую минуту на нечетность (odd)
+def check_minute():
+    # лист всех нечетные числа от 1 до 60 - https://catonmat.net/tools/generate-odd-numbers
+    odds = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19,
+            21, 23, 25, 27, 29, 31, 33, 35, 37, 39,
+            41, 43, 45, 47, 49, 51, 53, 55, 57, 59]
+
+    # переменная для сохранения текущей минуты
+    right_this_minute = datetime.today().minute
+
+    # самая популярная конструкция - оператор ветвления (обратите внимание на двоеточие и отступы)
+    if right_this_minute in odds:
+        # если данная минута содержится в листе нечетных чисел, значит мы печатаем это ("Эта минута немного странная")
+        print("This minute seems a little odd.")
+    else:
+        # иначе четная
+        print("Not an odd minute.")
 
 
-# Press the green button in the gutter to run the script.
+# питонячий аналог main из других языков, что бы можно было нашу единственную функцию дергать из консоли
+# python main.py
 if __name__ == '__main__':
-    print_hi('Kot')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    check_minute()
